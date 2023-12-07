@@ -1,5 +1,6 @@
 ﻿using _231130API.Modells.DTOs;
 using _231130API.Modells;
+using Microsoft.EntityFrameworkCore;
 
 namespace _231130API.Repositories {
     public class BlogPostsService : IBlogPostsInterface {
@@ -39,6 +40,7 @@ namespace _231130API.Repositories {
                 Id = Guid.NewGuid(),
                 PostName = createDTO.PostName,
                 PostContent = createDTO.PostContent,
+                UserId = createDTO.UserId,
                 CreatedTime = DateTime.UtcNow
             };
 
@@ -58,6 +60,13 @@ namespace _231130API.Repositories {
             await dbContext.SaveChangesAsync();
 
             return user;
+        }
+
+        public async Task<IEnumerable<BlogPosts>> GetUserPosts(Guid id) {
+
+            var postList = dbContext.BlogPosts.Where(x => x.UserId == id).ToList();
+
+            return postList;
         }
     }
 }

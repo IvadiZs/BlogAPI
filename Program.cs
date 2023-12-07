@@ -9,6 +9,7 @@ namespace _231130API {
 
             builder.Services.AddDbContext<BlogDBContext>();
             builder.Services.AddScoped<IBlogUserInterface, BlogUserService>();
+            builder.Services.AddScoped<IBlogPostsInterface, BlogPostsService>();
 
             // Add services to the container.
 

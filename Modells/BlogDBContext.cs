@@ -6,6 +6,10 @@ namespace _231130API.Modells {
 
         }
 
+        public BlogDBContext() {
+
+        }
+
         public DbSet<BlogUser> BlogUsers { get; set; } = null;
         public DbSet<BlogPosts> BlogPosts { get; set; } = null;
 

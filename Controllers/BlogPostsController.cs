@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace _231130API.Controllers {
     [Route("api/[controller]")]
     [ApiController]
+
     public class BlogPostsController : ControllerBase {
 
         private readonly IBlogPostsInterface blogPostsInterface;
@@ -44,5 +45,4 @@ namespace _231130API.Controllers {
             return await blogPostsInterface.DeleteById(id);
         }
     }
-}
 }

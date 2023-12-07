@@ -18,7 +18,7 @@ namespace _231130API.Modells
 
         public DateTime CreatedTime { get; set; }
 
-        public Guid BloggerId { get; set; }
+        public Guid UserId { get; set; }
 
         public BlogUser User { get; set; }
     }

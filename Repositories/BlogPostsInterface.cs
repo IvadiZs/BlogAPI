@@ -13,5 +13,7 @@ namespace _231130API.Repositories {
         Task<BlogPosts> Put(Guid id, UpdateBlogPostsDTO updateDTO);
 
         Task<BlogPosts> DeleteById(Guid id);
+
+        Task<IEnumerable<BlogPosts>> GetUserPosts(Guid id);
     }
 }

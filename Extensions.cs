@@ -8,7 +8,7 @@ namespace _231130API {
         }
 
         public static BlogPostsDTO AsDTO(this BlogPosts blogPosts) {
-            return new(blogPosts.Id, blogPosts.PostName, blogPosts.PostContent, blogPosts.CreatedTime, blogPosts.BloggerId);
+            return new(blogPosts.Id, blogPosts.PostName, blogPosts.PostContent, blogPosts.CreatedTime, blogPosts.UserId);
         }
     }
 }
