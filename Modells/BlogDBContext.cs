@@ -7,6 +7,7 @@ namespace _231130API.Modells {
         }
 
         public DbSet<BlogUser> BlogUsers { get; set; } = null;
+        public DbSet<BlogPosts> BlogPosts { get; set; } = null;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             if (!optionsBuilder.IsConfigured) {
