@@ -44,5 +44,10 @@ namespace _231130API.Controllers {
         public async Task<BlogPosts> Delete(Guid id) {
             return await blogPostsInterface.DeleteById(id);
         }
+
+        [HttpGet("/byUser/{id}")]
+        public async Task<IEnumerable<BlogPosts>> GetUserPosts(Guid id) {
+            return await blogPostsInterface.GetUserPosts(id);
+        }
     }
 }
