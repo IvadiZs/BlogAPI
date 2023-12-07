@@ -4,4 +4,9 @@
     public record UpdateBlogUserDTO(string UserName, string UserEmail, string Password);
 
 
+    public record BlogPostsDTO(Guid Id, string PostName, string PostContent, DateTime CreatedTime, Guid BloggerId);
+
+    public record CreatedBlogPostsDTO(string PostName, string PostContent);
+
+    public record UpdateBlogPostsDTO(string PostName, string PostContent);
 }
