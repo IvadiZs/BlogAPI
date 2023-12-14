@@ -13,12 +13,12 @@ namespace _231130API.Repositories {
 
         public async Task<BlogPosts> DeleteById(Guid id) {
 
-            var user = dbContext.BlogPosts.Where(x => x.Id == id).FirstOrDefault();
+            var post = dbContext.BlogPosts.Where(x => x.Id == id).FirstOrDefault();
 
-            dbContext.BlogPosts.Remove(user);
+            dbContext.BlogPosts.Remove(post);
             await dbContext.SaveChangesAsync();
 
-            return user;
+            return post;
         }
 
         public async Task<IEnumerable<BlogPosts>> Get() {
@@ -28,14 +28,14 @@ namespace _231130API.Repositories {
 
         public async Task<BlogPosts> GetById(Guid id) {
 
-            var user = dbContext.BlogPosts.Where(x => x.Id == id).FirstOrDefault();
+            var post = dbContext.BlogPosts.Where(x => x.Id == id).FirstOrDefault();
 
-            return user;
+            return post;
         }
 
         public async Task<BlogPosts> Post(CreatedBlogPostsDTO createDTO) {
 
-            var user = new BlogPosts {
+            var post = new BlogPosts {
 
                 Id = Guid.NewGuid(),
                 PostName = createDTO.PostName,
@@ -44,22 +44,22 @@ namespace _231130API.Repositories {
                 CreatedTime = DateTime.UtcNow
             };
 
-            await dbContext.BlogPosts.AddAsync(user);
+            await dbContext.BlogPosts.AddAsync(post);
             await dbContext.SaveChangesAsync();
 
-            return user;
+            return post;
         }
 
         public async Task<BlogPosts> Put(Guid id, UpdateBlogPostsDTO updateDTO) {
 
-            var user = dbContext.BlogPosts.Where(x => x.Id == id).FirstOrDefault();
+            var post = dbContext.BlogPosts.Where(x => x.Id == id).FirstOrDefault();
 
-            user.PostName = updateDTO.PostName;
-            user.PostContent = updateDTO.PostContent;
+            post.PostName = updateDTO.PostName;
+            post.PostContent = updateDTO.PostContent;
 
             await dbContext.SaveChangesAsync();
 
-            return user;
+            return post;
         }
 
         public async Task<IEnumerable<BlogPosts>> GetUserPosts(Guid id) {
